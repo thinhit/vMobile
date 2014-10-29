@@ -7,6 +7,9 @@
     <title></title>
 </head>
 <style>
+    body{
+        background:#f2f2f2;
+    }
     #myMenu ul li {
         list-style-type: none;
         list-style-position: inside;
@@ -43,6 +46,19 @@
         transform: translate3d(0, 0, 0);
         z-index: 100;
     }
+    my-content{
+        margin:10px;
+        overflow: hidden;
+    }
+
+    .item{
+        width:100%;
+        background:white;
+        border-radius: 3px;
+        margin-bottom:10px;
+
+
+    }
 </style>
 <body ng-app="ThinhApp">
 <div ng-controller="MainCtrl">
@@ -59,11 +75,26 @@
     </my-menu>
 
     <my-content>
-        hello i'am content
+
         <div style="margin-left:250px;">
             <button close-menu>Hello</button>
             <button close-menu>222</button>
             <button close-menu>333</button>
+        </div>
+        <div class="list">
+            <div class="item" ng-repeat="item in datasource" >
+                <p><b>Name</b> :{{item.name}}</p>
+                <p><b>Content </b>:{{item.content}}</p>
+                <p><b>Type </b>:{{item.type}}</p>
+                <p><b>Date </b>:{{item.date | date}}</p>
+
+            </div>
+
+            <div style="margin-left:250px;">
+                <button ng-click="loadMore()">Load more</button>
+
+
+            </div>
         </div>
     </my-content>
 
