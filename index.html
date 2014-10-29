@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    #myMenu ul li {
+        list-style-type: none;
+        list-style-position: inside;
+    }
+    my-content{
+        position: relative;
+        z-index: 99;
+    }
+    nav {
+        background: #ddd;
+        display: block;
+        height: 100%;
+        width: 200px;
+        position: fixed;
+        z-index: 0;
+        -webkit-transform: translate3d(-200px, 0, 0);
+        -moz-transform: translate3d(-200px, 0, 0);
+        -ms-transform: translate3d(-200px, 0, 0);
+        -o-transform: translate3d(-200px, 0, 0);
+        transform: translate3d(-200px, 0, 0);
+        -webkit-transition: -webkit-transform .2s ease-in-out;
+        -moz-transition: -moz-transform .2s ease-in-out;
+        -ms-transition: -ms-transform .2s ease-in-out;
+        -o-transition: -o-transform .2s ease-in-out;
+        transition: transform .2s ease-in-out;
+    }
+
+    nav.open {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        z-index:100;
+    }
+</style>
+<body ng-app="ThinhApp">
+<div ng-controller="MainCtrl">
+
+    <my-menu id="myMenu">
+        <nav>
+            <a>Home</a>
+            <a>About</a>
+            <a>My teams</a>
+            <a>Project</a>
+            <a>Clam</a>
+            <a>Contacts</a>
+        </nav>
+    </my-menu>
+
+    <my-content>
+        hello i'am content
+    </my-content>
+
+</div>
+</body>
+<script src="scripts/angular.js"></script>
+<script src="scripts/angular-sanitize.js"></script>
+<script src="scripts/app.js"></script>
+
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/style.css">
+
+</html>
