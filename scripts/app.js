@@ -2,6 +2,12 @@ angular.module('ThinhApp', ['ngSanitize'])
     .controller('MainCtrl', function ($scope){
         console.log('MainCtrl', 'start ', true);
         $scope.nav = 'hello world';
+        //eventType, cb, $element[0]
+
+
+        ionic.onGesture('swipe', function ($event){
+            console.log($event);
+        }, document.getElementsByTagName('nav')[0]);
     })
 
     .directive('myMenu', function (){
@@ -34,6 +40,7 @@ angular.module('ThinhApp', ['ngSanitize'])
                     var menuEl = document.querySelectorAll('my-menu'),
                     menuHasOpen = angular.element(menuEl).find('nav').hasClass('open');
 
+
                     if(!menuHasOpen){
                         scope.$broadcast('OPEN_NAV_MENU');
                     }else {
@@ -51,7 +58,15 @@ angular.module('ThinhApp', ['ngSanitize'])
             restrict:'ECMA',
             transclude: false,
             link: function (scope, el, attr){
-                console.log('Hello i am menu');
+
+            }
+        }
+    })
+    .directive('navBar', function (){
+        return {
+            restrict:'ECMA',
+            transclude: false,
+            link: function (scope, el, attr){
 
             }
         }

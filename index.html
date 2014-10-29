@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
     <title></title>
 </head>
@@ -48,7 +48,7 @@
 <div ng-controller="MainCtrl">
 
     <my-menu id="myMenu">
-        <nav>
+        <nav data-scrollable="y">
             <a>Home</a>
             <a>About</a>
             <a>My teams</a>
@@ -71,6 +71,11 @@
 </body>
 <script src="scripts/angular.js"></script>
 <script src="scripts/angular-sanitize.js"></script>
+<script src="scripts/ionic.js"></script>
+
+<script src="http://zynga.github.io/scroller/src/Raf.js"></script>
+<script src="http://zynga.github.io/scroller/src/Animate.js"></script>
+<script src="http://zynga.github.io/scroller/src/Scroller.js"></script>
 <script src="scripts/app.js"></script>
 
 <link rel="stylesheet" href="css/normalize.css">
