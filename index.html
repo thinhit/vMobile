@@ -2,6 +2,8 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title></title>
 </head>
 <style>
@@ -9,10 +11,12 @@
         list-style-type: none;
         list-style-position: inside;
     }
-    my-content{
+
+    my-content {
         position: relative;
         z-index: 99;
     }
+
     nav {
         background: #ddd;
         display: block;
@@ -37,7 +41,7 @@
         -moz-transform: translate3d(0, 0, 0);
         -o-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
-        z-index:100;
+        z-index: 100;
     }
 </style>
 <body ng-app="ThinhApp">
@@ -56,6 +60,11 @@
 
     <my-content>
         hello i'am content
+        <div style="margin-left:250px;">
+            <button close-menu>Hello</button>
+            <button close-menu>222</button>
+            <button close-menu>333</button>
+        </div>
     </my-content>
 
 </div>

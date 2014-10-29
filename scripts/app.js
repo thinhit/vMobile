@@ -12,16 +12,35 @@ angular.module('ThinhApp', ['ngSanitize'])
 
                 var navMenu = angular.element(el).find('nav');
                 var open = false;
-                setInterval(function (){
-                    open = !open;
-                    if(open){
-                        scope.$emit('OPEN_NAV_MENU');
-                        navMenu.addClass('open');
+
+                scope.$on('OPEN_NAV_MENU', function (){
+                    navMenu.addClass('open');
+                });
+                scope.$on('CLOSE_NAV_MENU', function (){
+                    navMenu.removeClass('open');
+                });
+
+
+            }
+        }
+    })
+    .directive('closeMenu', function (){
+        return {
+            restrict:'ECMA',
+            transclude: false,
+            link: function (scope, el, attr){
+
+                angular.element(el).on('click', function(){
+                    var menuEl = document.querySelectorAll('my-menu'),
+                    menuHasOpen = angular.element(menuEl).find('nav').hasClass('open');
+
+                    if(!menuHasOpen){
+                        scope.$broadcast('OPEN_NAV_MENU');
                     }else {
-                        scope.$emit('CLOSE_NAV_MENU');
-                        navMenu.removeClass('open');
+                        scope.$broadcast('CLOSE_NAV_MENU');
                     }
-                }, 2000)
+                });
+
 
 
             }
